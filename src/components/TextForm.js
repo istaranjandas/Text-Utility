@@ -6,11 +6,13 @@ export default function TextForm(props) {
         // console.log("Up Button Clicked");
         const newText = text.toUpperCase();
         setText(newText);
+        props.Alertfunc("UpperCase is done","Success");
     }
     const handleLowClick =() =>{
         // console.log("Up Button Clicked");
         const newText = text.toLowerCase();
         setText(newText);
+        props.Alertfunc("LowerCase is done","Success");
     }
     const handleOnChange =(event) =>{
         console.log("On Change");
@@ -24,6 +26,7 @@ export default function TextForm(props) {
       const handleClearClick =() =>{
         const newText = "";
         setText(newText);
+        props.Alertfunc("Cleared","Success");
     }
   return (
     <>
@@ -38,7 +41,7 @@ export default function TextForm(props) {
   </div>
   <div style={props.mode==='dark'?{color:'white'}:{color:'black'}}>
   <h1>Text Summary</h1>
-  <p>{text.split(" ").length} words and {text.length} characters</p>
+  <p>{text.split(" ").length-1} words and {text.length} characters</p>
   <p>{0.08 * text.split(" ").length} minutes read</p>
   <h2>Preview</h2>
   <p>{text.length>0?text:"Enter something above"}</p>

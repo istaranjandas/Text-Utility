@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React,{useState} from 'react'
+import Alert from './components/Alert';
+
 
 
 function App() {
@@ -11,17 +13,30 @@ function App() {
     if(mode2==='white'){
     setMode2('dark');
     document.body.style.backgroundColor = 'black';
+    showAlert("Dark mode enabled!","Success");
     }
     else{
       setMode2('white');
       document.body.style.backgroundColor = 'white';
+      showAlert("Light mode enabled!","Success");
     }
+  }
+  const [alert,setAlert] = useState(null);
+  const showAlert = (message,type)=>{
+    setAlert({
+      message : message,
+      type : type
+    })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
   return (
     <>
       <Navbar title="Istaranjan" mode={mode2} toggleMode={toggleMode2} aboutText="DIng" />
+      <Alert alert={alert}/>
       <div className="container my-3">
-        <TextForm heading="Enter text to analyze" mode={mode2}/>
+        <TextForm heading="Enter text to analyze" Alertfunc={showAlert} mode={mode2}/>
         {/* <About/> */}
       </div>
     </>
