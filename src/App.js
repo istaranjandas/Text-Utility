@@ -33,7 +33,7 @@ function App() {
   }
   return (
     <>
-      <Navbar title="Istaranjan" mode={mode2} toggleMode={toggleMode2} aboutText="DIng" />
+      <Navbar title="TextUtils" mode={mode2} toggleMode={toggleMode2} aboutText="DIng" />
       <Alert alert={alert}/>
       <div className="container my-3">
         <TextForm heading="Enter text to analyze" Alertfunc={showAlert} mode={mode2}/>
